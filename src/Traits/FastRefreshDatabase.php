@@ -71,7 +71,9 @@ trait FastRefreshDatabase
 
         $migrations = array_values($migrations);
 
-        // Add the current git branch
+        // Add the current git branch->map(function ($path) {
+        //                return realpath($path);
+        //            })
 
         $checkBranch = new Process(['git', 'branch', '--show-current']);
         $checkBranch->run();
